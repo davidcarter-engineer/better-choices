@@ -29,12 +29,26 @@ body {
 .site-header {
   background: var(--primary-purple);
   color: var(--white);
-  padding: 1.2rem 0;
+  padding: 0;
   text-align: center;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  height: 300px;
+  width: auto;
+  display: block;
+  margin: -2.5rem 0;
+}
+
 .logo {
-  font-size: 2.6rem;
+  font-size: 3.2rem;
   font-family: 'Brush Script MT', 'Segoe Script', cursive;
   letter-spacing: 0.02em;
 }
@@ -122,6 +136,12 @@ body {
 .restaurant-card h4 {
   color: var(--primary-green);
   font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-detail {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
 }
 
 .healthy-pick {

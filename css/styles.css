@@ -181,6 +181,274 @@ body {
   background-color: var(--light-green);
 }
 
+.nutrition-lookup {
+  padding: 2.5rem 0;
+}
+
+.nutrition-lookup h3 {
+  font-size: 1.7rem;
+  color: var(--primary-purple);
+  margin-bottom: 0.5rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  flex: 1 1 250px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e4d8f0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--secondary-purple);
+}
+
+#search-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--secondary-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#search-btn:hover {
+  background-color: var(--primary-purple);
+}
+
+.nutrition-card {
+  background-color: var(--white);
+  border: 1px solid #e4d8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 18px rgba(60, 14, 90, 0.08);
+  max-width: 400px;
+}
+
+.nutrition-card h4 {
+  color: var(--primary-green);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.nutrition-loading {
+  color: var(--secondary-purple);
+  font-weight: 600;
+}
+
+.nutrition-error {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* ============================================================
+   HEALTHY CHOICE COMPARISON STYLES
+   ============================================================ */
+
+.comparison-section {
+  padding: 2.5rem 0;
+  background-color: var(--light-bg);
+}
+
+.comparison-section h3 {
+  font-size: 1.7rem;
+  color: var(--primary-purple);
+  margin-bottom: 0.5rem;
+}
+
+.compare-inputs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.compare-field {
+  flex: 1 1 200px;
+}
+
+.compare-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text-dark);
+}
+
+.compare-field input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e4d8f0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.compare-field input:focus {
+  border-color: var(--secondary-purple);
+}
+
+#compare-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--secondary-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#compare-btn:hover {
+  background-color: var(--primary-purple);
+}
+
+.compare-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.compare-card {
+  flex: 1 1 280px;
+  background-color: var(--white);
+  border: 2px solid #e4d8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 18px rgba(60, 14, 90, 0.08);
+}
+
+.compare-card.winner {
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 18px rgba(31, 138, 92, 0.15);
+}
+
+.compare-card h4 {
+  color: var(--primary-green);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.health-score {
+  font-weight: 700;
+  color: var(--secondary-purple);
+  margin-top: 0.5rem;
+}
+
+.comparison-verdict {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background-color: var(--white);
+  border-left: 6px solid var(--primary-green);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  box-shadow: 0 6px 14px rgba(10, 60, 30, 0.08);
+}
+
+/* ============================================================
+   FOOD DIARY STYLES
+   ============================================================ */
+
+.food-diary {
+  padding: 2.5rem 0;
+}
+
+.food-diary h3 {
+  font-size: 1.7rem;
+  color: var(--primary-purple);
+  margin-bottom: 0.5rem;
+}
+
+.diary-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.diary-field {
+  flex: 1 1 150px;
+}
+
+.diary-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text-dark);
+}
+
+.diary-field input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e4d8f0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.diary-field input:focus {
+  border-color: var(--secondary-purple);
+}
+
+#save-meal-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--secondary-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#save-meal-btn:hover {
+  background-color: var(--primary-purple);
+}
+
+.daily-total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--secondary-purple);
+  margin-bottom: 1rem;
+}
+
+.diary-entry {
+  background-color: var(--white);
+  border: 1px solid #e4d8f0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 12px rgba(60, 14, 90, 0.06);
+}
+
+.diary-entry h4 {
+  color: var(--primary-green);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
 .pick-result {
   background-color: var(--white);
   border-left: 6px solid var(--primary-green);

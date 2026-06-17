@@ -63,6 +63,64 @@
       </div>
     </section>
 
+    <!-- Nutrition Lookup section - uses Fetch API and async/await -->
+    <section class="nutrition-lookup" id="nutrition">
+      <div class="container">
+        <h3>Nutrition Lookup</h3>
+        <p>Search for any food to see its nutrition facts.</p>
+        <div class="search-bar">
+          <input type="text" id="food-input" placeholder="Enter a food (e.g. Chicken Sandwich)">
+          <button id="search-btn">🔍 Search</button>
+        </div>
+        <div id="nutrition-result"></div>
+      </div>
+    </section>
+
+    <!-- Healthy Choice Comparison section - compares two foods side-by-side -->
+    <section class="comparison-section" id="comparison">
+      <div class="container">
+        <h3>Healthy Choice Comparison</h3>
+        <p>Compare two foods to find the healthier option.</p>
+        <div class="compare-inputs">
+          <div class="compare-field">
+            <label for="food-one">Food Item 1:</label>
+            <input type="text" id="food-one" placeholder="e.g. Big Mac">
+          </div>
+          <div class="compare-field">
+            <label for="food-two">Food Item 2:</label>
+            <input type="text" id="food-two" placeholder="e.g. Turkey Sub">
+          </div>
+          <button id="compare-btn">⚖️ Compare</button>
+        </div>
+        <div id="comparison-result"></div>
+      </div>
+    </section>
+
+    <!-- Food Diary section - tracks meals using DOM manipulation -->
+    <section class="food-diary" id="diary">
+      <div class="container">
+        <h3>Food Diary</h3>
+        <p>Track your meals and monitor your daily calorie intake.</p>
+        <div class="diary-form">
+          <div class="diary-field">
+            <label for="meal-name">Meal Name:</label>
+            <input type="text" id="meal-name" placeholder="e.g. Lunch">
+          </div>
+          <div class="diary-field">
+            <label for="food-item">Food Item:</label>
+            <input type="text" id="food-item" placeholder="e.g. Grilled Chicken Wrap">
+          </div>
+          <div class="diary-field">
+            <label for="meal-calories">Calories:</label>
+            <input type="number" id="meal-calories" placeholder="e.g. 350">
+          </div>
+          <button id="save-meal-btn">💾 Save Meal</button>
+        </div>
+        <p class="daily-total" id="daily-total">Daily Total Calories: 0</p>
+        <div id="diary-entries"></div>
+      </div>
+    </section>
+
     <!-- Healthy Pick of the Day section - populated by JavaScript -->
     <section class="healthy-pick" id="pick">
       <div class="container">

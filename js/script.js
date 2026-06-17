@@ -1,24 +1,24 @@
 /*
-  Better Choices - JavaScript (Week 3 Refactor)
+  Better Choices - JavaScript (Week 4: DOM Manipulation & Events)
+
   This file uses:
-  - Variables
-  - Arrays
-  - Loops
-  - Arrow Functions
-  - Objects
-  - JSON concepts
+  - Variables, Arrays, Objects
+  - Loops, Arrow Functions
   - Math.random()
+  - DOM Manipulation (querySelector, createElement, appendChild, textContent, innerHTML)
+  - Event Listeners (addEventListener)
 */
 
-// --- OBJECTS ---
-// An object stores related data together using key-value pairs.
-// Each key is a property name, and each value is the data for that property.
-// Example: { name: "Subway", healthyScore: 8 }
-// You access values with dot notation: restaurant.name
+/*
+  --- WHAT IS THE DOM? ---
+  The DOM (Document Object Model) is the browser's representation of the HTML page.
+  It turns your HTML into a tree of "nodes" (elements) that JavaScript can read and change.
+  When we use querySelector() or getElementById(), we are reaching into the DOM
+  to grab an element so we can modify it with JavaScript.
+*/
 
 // --- ARRAY OF OBJECTS ---
-// Instead of storing just names, we now store full restaurant details.
-// Each item in the array is an object with multiple properties.
+// Each restaurant is an object with properties describing it.
 const restaurants = [
   { name: "McDonald's", healthyScore: 5, recommendedMeal: "Grilled Chicken Sandwich", calories: 380 },
   { name: "Subway", healthyScore: 8, recommendedMeal: "Veggie Delight Sub", calories: 230 },
@@ -28,27 +28,33 @@ const restaurants = [
   { name: "Taco Bell", healthyScore: 4, recommendedMeal: "Black Bean Crunchwrap", calories: 450 }
 ];
 
+// --- FAVORITES ARRAY ---
+// This array will hold the names of restaurants the user has favorited.
+// We use it to prevent duplicates and track the count.
+const favorites = [];
+
 /*
-  --- JSON (JavaScript Object Notation) ---
-  JSON is a text format for storing and sharing data.
-  It looks almost identical to JavaScript objects, but:
-  - All keys must be in double quotes: { "name": "Subway" }
-  - It is just text (a string), not a live JavaScript object.
+  --- querySelector() ---
+  querySelector() finds the FIRST element in the DOM that matches a CSS selector.
+  We use it here to grab references to elements we'll update later.
+*/
+const restaurantGrid = document.querySelector("#restaurant-grid");
+const favoritesGrid = document.querySelector("#favorites-grid");
+const favoritesCounter = document.querySelector("#favorites-counter");
 
-  To convert an object to JSON text:    JSON.stringify(restaurants)
-  To convert JSON text back to object:  JSON.parse(jsonString)
-
-  We use objects directly here, but JSON is how data is stored or sent between systems.
+/*
+  --- HOW EVENT LISTENERS WORK ---
+  An event listener "listens" for something to happen (like a click).
+  When that event occurs, it runs a function you provide.
+  Syntax: element.addEventListener("click", functionToRun)
+  The function runs ONLY when the user performs the action — not immediately.
 */
 
-// --- ARROW FUNCTION ---
-// This function loops through the array of objects and builds restaurant cards.
+// --- DISPLAY RESTAURANTS ---
+// This function builds restaurant cards and adds a "Add to Favorites" button to each.
 const displayRestaurants = () => {
   let cardsHTML = "";
 
-  // --- LOOP ---
-  // Each time through the loop, "restaurants[i]" is one object.
-  // We use dot notation to access each property of that object.
   for (let i = 0; i < restaurants.length; i++) {
     cardsHTML +=
       '<article class="restaurant-card">' +
@@ -56,19 +62,84 @@ const displayRestaurants = () => {
         '<p class="card-detail">⭐ Healthy Score: ' + restaurants[i].healthyScore + '/10</p>' +
         '<p class="card-detail">🥗 Try: ' + restaurants[i].recommendedMeal + '</p>' +
         '<p class="card-detail">🔥 ' + restaurants[i].calories + ' calories</p>' +
+        '<button class="fav-btn" data-index="' + i + '">❤️ Add to Favorites</button>' +
       '</article>';
   }
 
-  document.getElementById("restaurant-grid").innerHTML = cardsHTML;
+  // --- innerHTML ---
+  // innerHTML sets ALL of the HTML content inside an element at once.
+  restaurantGrid.innerHTML = cardsHTML;
+
+  /*
+    --- querySelectorAll() ---
+    querySelectorAll() finds ALL elements that match a CSS selector.
+    It returns a NodeList (similar to an array) that we can loop through.
+  */
+  const allFavButtons = document.querySelectorAll(".fav-btn");
+
+  // Loop through every button and attach a click event listener.
+  for (let i = 0; i < allFavButtons.length; i++) {
+    allFavButtons[i].addEventListener("click", () => {
+      // "data-index" stores which restaurant this button belongs to.
+      const index = allFavButtons[i].getAttribute("data-index");
+      addToFavorites(index);
+    });
+  }
 };
 
-// --- ARROW FUNCTION + Math.random() ---
-// Picks a random restaurant object and returns a formatted string.
+/*
+  --- ADD TO FAVORITES ---
+  This function is called when a user clicks a favorite button.
+  It checks for duplicates, then creates a new card in the favorites section.
+*/
+const addToFavorites = (index) => {
+  const restaurant = restaurants[index];
+
+  // --- PREVENT DUPLICATES ---
+  // Check if this restaurant name is already in the favorites array.
+  if (favorites.indexOf(restaurant.name) !== -1) {
+    console.log(restaurant.name + " is already in your favorites!");
+    return; // Stop here — do not add again.
+  }
+
+  // Add the restaurant name to our tracking array.
+  favorites.push(restaurant.name);
+
+  /*
+    --- createElement() ---
+    createElement() creates a brand new HTML element in memory.
+    It does NOT appear on the page until we use appendChild() to add it.
+  */
+  const card = document.createElement("article");
+  card.className = "restaurant-card favorite-card";
+
+  // --- innerHTML ---
+  // Set the inner content of the new card element.
+  card.innerHTML =
+    '<h4>' + restaurant.name + '</h4>' +
+    '<p class="card-detail">⭐ Healthy Score: ' + restaurant.healthyScore + '/10</p>' +
+    '<p class="card-detail">🥗 Try: ' + restaurant.recommendedMeal + '</p>' +
+    '<p class="card-detail">🔥 ' + restaurant.calories + ' calories</p>';
+
+  /*
+    --- appendChild() ---
+    appendChild() takes an element and adds it as the last child inside another element.
+    This is how we make our new card actually appear on the page.
+  */
+  favoritesGrid.appendChild(card);
+
+  /*
+    --- textContent ---
+    textContent sets or gets the plain text inside an element.
+    Unlike innerHTML, it does NOT parse HTML tags — just plain text.
+  */
+  favoritesCounter.textContent = "Favorites Saved: " + favorites.length;
+};
+
+// --- HEALTHY PICK OF THE DAY ---
 const getHealthyPick = () => {
   const randomIndex = Math.floor(Math.random() * restaurants.length);
   const pick = restaurants[randomIndex];
-
-  // Access multiple properties of the picked object to build the result.
   return pick.name + " — try the " + pick.recommendedMeal + " (" + pick.calories + " cal)";
 };
 
@@ -76,4 +147,4 @@ const getHealthyPick = () => {
 displayRestaurants();
 
 const healthyPick = getHealthyPick();
-document.getElementById("healthy-pick-result").textContent = healthyPick;
+document.querySelector("#healthy-pick-result").textContent = healthyPick;

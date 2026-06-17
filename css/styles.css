@@ -144,6 +144,39 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.fav-btn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.fav-btn:hover {
+  background-color: var(--primary-purple);
+}
+
+.favorites-section {
+  padding: 2.5rem 0;
+}
+
+.favorites-section h3 {
+  font-size: 1.7rem;
+  color: var(--primary-purple);
+  margin-bottom: 0.5rem;
+}
+
+.favorites-counter {
+  font-weight: 600;
+  color: var(--secondary-purple);
+  margin-bottom: 1rem;
+}
+
 .healthy-pick {
   background-color: var(--light-green);
 }

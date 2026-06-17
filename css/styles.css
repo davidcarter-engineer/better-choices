@@ -1,0 +1,156 @@
+:root {
+  --primary-purple: #5b2d8e;
+  --secondary-purple: #7c3aed;
+  --primary-green: #1f8a5c;
+  --light-green: #dff3ea;
+  --light-bg: #f9f4fc;
+  --text-dark: #2d1050;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  background: linear-gradient(180deg, #f3eafc 0%, #fcf9ff 45%, #edf9f2 100%);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  background: var(--primary-purple);
+  color: var(--white);
+  padding: 1.2rem 0;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.6rem;
+  font-family: 'Brush Script MT', 'Segoe Script', cursive;
+  letter-spacing: 0.02em;
+}
+
+.main-nav {
+  background: var(--secondary-purple);
+  padding: 0.6rem 0;
+  text-align: center;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.hero {
+  padding: 5rem 0 3.5rem;
+  background: radial-gradient(circle at top right, #e8d5f5 0%, transparent 45%);
+}
+
+.hero-content h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--primary-purple);
+  margin-bottom: 0.8rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.about,
+.featured-restaurants,
+.healthy-pick {
+  padding: 2.5rem 0;
+}
+
+.about h3,
+.featured-restaurants h3,
+.healthy-pick h3 {
+  font-size: 1.7rem;
+  color: var(--primary-purple);
+  margin-bottom: 1rem;
+}
+
+.restaurant-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.restaurant-card {
+  flex: 1 1 240px;
+  background-color: var(--white);
+  border: 1px solid #e4d8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 18px rgba(60, 14, 90, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(60, 14, 90, 0.14);
+}
+
+.restaurant-card h4 {
+  color: var(--primary-green);
+  font-size: 1.15rem;
+}
+
+.healthy-pick {
+  background-color: var(--light-green);
+}
+
+.pick-result {
+  background-color: var(--white);
+  border-left: 6px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 14px rgba(10, 60, 30, 0.08);
+}
+
+.site-footer {
+  background-color: var(--primary-purple);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .main-nav ul {
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 4rem;
+  }
+}

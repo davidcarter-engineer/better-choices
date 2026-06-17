@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better Choices</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header section -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Better Choices</h1>
+    </div>
+  </header>
+
+  <!-- Navigation bar -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#restaurants">Restaurants</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Hero section introduces the project -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h2>Better Choices</h2>
+        <p class="subtitle">Helping you make healthier decisions one meal at a time.</p>
+        <p>
+          Better Choices helps users discover healthier fast food options and make informed food decisions.
+        </p>
+      </div>
+    </section>
+
+    <!-- About section gives quick context -->
+    <section class="about" id="about">
+      <div class="container">
+        <h3>About Better Choices</h3>
+        <p>
+          This project is a beginner-friendly portfolio site focused on making health information easier to understand.
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured restaurants section is created using HTML only -->
+    <section class="featured-restaurants" id="restaurants">
+      <div class="container">
+        <h3>Featured Restaurants</h3>
+        <div class="restaurant-grid">
+          <article class="restaurant-card">
+            <h4>McDonald's</h4>
+          </article>
+          <article class="restaurant-card">
+            <h4>Subway</h4>
+          </article>
+          <article class="restaurant-card">
+            <h4>Chipotle</h4>
+          </article>
+          <article class="restaurant-card">
+            <h4>Chick-fil-A</h4>
+          </article>
+          <article class="restaurant-card">
+            <h4>Wendy's</h4>
+          </article>
+          <article class="restaurant-card">
+            <h4>Taco Bell</h4>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Healthy Pick of the Day section gets text from JavaScript -->
+    <section class="healthy-pick" id="pick">
+      <div class="container">
+        <h3>Healthy Pick of the Day</h3>
+        <!-- Load JavaScript before printing healthyPick -->
+        <script src="js/script.js"></script>
+        <p class="pick-result">
+          Today's featured healthy pick:
+          <strong>
+            <!-- This script prints the variable created in script.js -->
+            <script>
+              document.write(healthyPick);
+            </script>
+          </strong>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer section -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Better Choices © 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
